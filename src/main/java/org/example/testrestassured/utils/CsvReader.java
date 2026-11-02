@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CsvReader {
-    public static Object[][] getData(String fileName) {
+    public static Object[][] getData(String fileName, String prefix) {
         List<Object[]> dataList = new ArrayList<>();
         InputStream inputStream = CsvReader.class.getClassLoader().getResourceAsStream(fileName);
 
@@ -28,6 +28,11 @@ public class CsvReader {
 
                 String[] values = line.split(",");
                 if (values.length >= 6) {
+                    String testCaseId = values[0].trim();
+                    if (prefix != null && !testCaseId.startsWith(prefix)) {
+                        continue;
+                    }
+
                     dataList.add(new Object[]{
                             values[0].trim(),
                             values[1].trim(),

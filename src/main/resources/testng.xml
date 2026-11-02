@@ -3,7 +3,8 @@
 <suite name="API Automation Suite" parallel="methods" thread-count="3" verbose="1">
     <test name="YouTrack API Tests">
         <classes>
-            <class name="org.example.testrestassured.tests.ApiTests"/>
+            <class name="org.example.testrestassured.tests.ProjectTests"/>
+            <class name="org.example.testrestassured.tests.UserTests"/>
         </classes>
     </test>
 </suite>

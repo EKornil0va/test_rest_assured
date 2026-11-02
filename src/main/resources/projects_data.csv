@@ -1,6 +1,6 @@
 testCaseId,projectId,projectName,shortName,expectedStatus,description
-POS_01,AUTO_POS_99,Auto Positive Project 99,A99,201,Успешное создание проекта
-NEG_01,,Auto No ID Project,APP,400,Пустой ID проекта
+POS_01,AUTO_POS,Auto Positive Project,APP,200,Успешное создание проекта
+NEG_01,INVALID ID,Auto No ID Project,APP,400,Невалидный ID
 NEG_02,AUTO_NEG_98,,APP,400,Пустое имя проекта
 NEG_03,AUTO!NEG_97,Auto Bad Chars,APP,400,Спецсимволы в ID
-NEG_04,AUTO_NEG_96,Auto Short Name Bad,1,400,Слишком короткое имя
+NEG_04,AUTO_NEG_96,Auto Short Name Bad,A B,400,Невалидное короткое имя
