@@ -7,7 +7,8 @@ public class ApiConstants {
     public enum Endpoint {
         PROJECTS("/api/admin/projects"),
         PROJECT_BY_ID("/api/admin/projects/{id}"),
-        USERS_ME("/api/users/me");
+        USERS_ME("/api/users/me"),
+        FAKE_PROJECT_PREFIX("FAKE_PROJECT");
 
         private final String path;
 
@@ -17,7 +18,6 @@ public class ApiConstants {
 
         public String getPath() {
             return path;
-
         }
     }
 }

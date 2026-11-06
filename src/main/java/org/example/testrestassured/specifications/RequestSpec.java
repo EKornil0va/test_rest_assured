@@ -1,20 +1,16 @@
-package org.example.testrestassured.utils;
+package org.example.testrestassured.specifications;
 
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.specification.RequestSpecification;
-import io.restassured.specification.ResponseSpecification;
 
 import static io.restassured.RestAssured.config;
 import static io.restassured.config.RedirectConfig.redirectConfig;
-import static io.restassured.http.ContentType.JSON;
 import static io.restassured.filter.log.LogDetail.ALL;
 import static org.example.testrestassured.utils.ApiConstants.API_TOKEN;
 import static org.example.testrestassured.utils.ApiConstants.BASE_URL;
 
-public class SpecBuilder {
-
-    public static RequestSpecification getRequestSpec() {
+public class RequestSpec {
+    public static RequestSpecification baseRequestSpec() {
         return new RequestSpecBuilder()
                 .setBaseUri(BASE_URL)
                 .addHeader("Authorization", "Bearer " + API_TOKEN)
@@ -25,11 +21,11 @@ public class SpecBuilder {
                 .build();
     }
 
-    public static ResponseSpecification getResponseSpec(int expectedStatusCode) {
-        return new ResponseSpecBuilder()
-                .expectStatusCode(expectedStatusCode)
-                .expectContentType(JSON)
-                .log(ALL)
-                .build();
+    public static RequestSpecification projectRequestSpec() {
+        return baseRequestSpec();
+    }
+
+    public static RequestSpecification userRequestSpec() {
+        return baseRequestSpec();
     }
 }

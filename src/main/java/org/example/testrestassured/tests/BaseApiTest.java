@@ -1,7 +1,7 @@
 package org.example.testrestassured.tests;
 
 import io.restassured.specification.RequestSpecification;
-import org.example.testrestassured.utils.SpecBuilder;
+import org.example.testrestassured.specifications.RequestSpec;
 import org.testng.annotations.BeforeClass;
 
 public class BaseApiTest {
@@ -9,6 +9,6 @@ public class BaseApiTest {
 
     @BeforeClass
     public void setupSpecifications() {
-        this.reqSpec = SpecBuilder.getRequestSpec();
+        this.reqSpec = RequestSpec.baseRequestSpec();
     }
 }

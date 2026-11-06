@@ -1,6 +1,7 @@
 package org.example.testrestassured.tests;
 
-import org.example.testrestassured.utils.SpecBuilder;
+import org.example.testrestassured.specifications.RequestSpec;
+import org.example.testrestassured.specifications.ResponseSpec;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
@@ -13,11 +14,11 @@ public class UserTests extends BaseApiTest {
     @Test(description = "Получение данных текущего пользователя по токену")
     public void testGetCurrentUser() {
         given()
-                .spec(reqSpec)
+                .spec(RequestSpec.userRequestSpec())
                 .when()
                 .get(USERS_ME.getPath())
                 .then()
-                .spec(SpecBuilder.getResponseSpec(200))
+                .spec(ResponseSpec.successResponse())
                 .body("$type", equalTo("Me"))
                 .body("id", notNullValue());
     }
